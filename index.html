@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="pageCub: WYSIWYG for quick and easy website development">
+    <meta name="author" content="Christian Montoya">
+    <link rel="shortcut icon" href="ico/favicon.png">
+
+    <title>pageCub version 0.3</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+    <!-- pnotify default CSS -->
+    <link href="css/jquery.pnotify.default.css" media="all" rel="stylesheet" type="text/css">
+    <link href="css/jquery.pnotify.default.icons.css" media="all" rel="stylesheet" type="text/css">
+
+    <!-- pageCub application styles -->
+    <link href="css/pagecub.css" rel="stylesheet" type="text/css">
+    <link href="css/pagecub.font.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <!-- pageCub application controls -->
+    <div id="pagecub" class="navbar navbar-default navbar-static-top">
+      <div class="container"><div class="wrapper">
+      	<div class="btn-toolbar" id="app-grid-controls" role="toolbar">
+					<div class="btn-group" id="app-grid-row-controls">
+						<a href="#" class="btn btn-default" id="app-add-row" title="Add Row">
+							<span class="icon-app-add-row"></span>
+						</a>
+						<a href="#" class="btn btn-default disabled" id="app-remove-row" title="Delete Row">
+							<span class="icon-app-remove-row"></span>
+						</a>
+					</div>
+					<div class="btn-group" id="app-grid-column-controls">
+						<a href="#" class="btn btn-default disabled" id="app-add-column" title="Add Column">
+							<span class="icon-app-add-column"></span>
+						</a> 
+						<a href="#" class="btn btn-default disabled" id="app-remove-column" title="Delete Column">
+							<span class="icon-app-remove-column"></span>
+						</a> 
+						<a href="#" class="btn btn-default disabled" id="app-expand-column" title="Increase Column Width">
+							<span class="icon-app-expand-column"></span>
+						</a> 
+						<a href="#" class="btn btn-default disabled" id="app-contract-column" title="Decrease Column Width">
+							<span class="icon-app-contract-column"></span>
+						</a> 
+						<a href="#" class="btn btn-default disabled" id="app-add-offset" title="Increase Column Offset">
+							<span class="icon-app-increase-offset"></span>
+						</a>
+						<a href="#" class="btn btn-default disabled" id="app-subtract-offset" title="Decrease Column Offset">
+							<span class="icon-app-decrease-offset"></span>
+						</a>
+						<a href="#" class="btn btn-default disabled" id="app-edit-column" title="Edit Column">
+							<span class="icon-pencil"></span>
+						</a>
+					</div>
+				</div>
+				<div class="btn-toolbar" id="app-editor-controls" data-role="editor-toolbar" data-target="#editor">
+					<div class="btn-group">
+						<a class="btn btn-default dropdown-toggle disabled" data-toggle="dropdown" title="Block Formatting"><span class="current-block" id="app-current-block-formatting">Formatting</span> <b class="caret"></b></a>
+						<ul id="app-block-formatting-options" class="dropdown-menu">
+							<li><a href="javascript:;" data-edit="formatBlock div">Normal text</a></li>
+							<li><a href="javascript:;" data-edit="formatBlock h1" style="font-weight:bold">Heading 1</a></li>
+							<li><a href="javascript:;" data-edit="formatBlock h2" style="font-weight:bold">Heading 2</a></li>
+							<li><a href="javascript:;" data-edit="formatBlock h3" style="font-weight:bold">Heading 3</a></li>
+							<li><a href="javascript:;" data-edit="formatBlock h4" style="font-weight:bold">Heading 4</a></li>
+							<li><a href="javascript:;" data-edit="formatBlock h5" style="font-weight:bold">Heading 5</a></li>
+							<li><a href="javascript:;" data-edit="formatBlock h6" style="font-weight:bold">Heading 6</a></li>
+							<li><a href="javascript:;" data-edit="formatBlock pre"><code>Pre</code></a></li>
+						</ul>
+					</div>
+    			<div class="btn-group">
+    				<a href="javascript:;" class="btn btn-default disabled" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><span class="icon-bold"></span></a>
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><span class="icon-italic"></span></a>
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="strikethrough" title="Strikethrough"><span class="icon-strikethrough"></span></a>
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><span class="icon-underline"></span></a>
+					</div>
+					<div class="btn-group">
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="insertunorderedlist" title="Bullet list"><span class="icon-list-ul"></span></a>
+						<a chref="javascript:;" class="btn btn-default disabled" data-edit="insertorderedlist" title="Number list"><span class="icon-list-ol"></span></a>
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="outdent" title="Reduce indent (Shift+Tab)"><span class="icon-indent-left"></span></a>
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="indent" title="Indent (Tab)"><span class="icon-indent-right"></span></a>
+					</div>
+					<div class="btn-group">
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><span class="icon-align-left"></span></a>
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><span class="icon-align-center"></span></a>
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><span class="icon-align-right"></span></a>
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><span class="icon-align-justify"></span></a>
+					</div>
+					<div class="btn-group">
+						<a href="javascript:;" class="btn btn-default dropdown-toggle disabled" data-toggle="dropdown" title="Hyperlink"><span class="icon-link"></span></a>
+						<div class="dropdown-menu input-append">
+							<input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
+							<button class="btn btn-default" type="button">Add</button>
+						</div>
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="unlink" title="Remove Hyperlink"><span class="icon-cut"></span></a>
+					</div>
+					<div class="btn-group">
+						<a class="btn btn-default disabled" title="Insert picture (or just drag and drop)" id="pictureBtn"><span class="icon-picture"></span></a>
+						<input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+					</div>
+					<div class="btn-group">
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><span class="icon-undo"></span></a>
+						<a href="javascript:;" class="btn btn-default disabled" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><span class="icon-repeat"></span></a>
+					</div>
+					<!-- <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech=""> -->
+				</div>
+        <div id="app-current">&nbsp;</div>
+        <div class="clearfix"></div>
+      </div></div>
+    </div>
+    
+    <!-- pageCub alerts --> <!-- 
+    <div id="app-alerts" class="container"></div> -->
+	
+	<!-- pageCub page content -->
+	<div id="page" class="edit container">
+				
+		
+
+	</div> <!-- /container -->
+		
+    <!-- jQuery + plugins + Bootstrap core JS + Bootstrap WYSIWYG js -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.hotkeys.js"></script>
+    <script src="js/jquery.pnotify.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-wysiwyg.js"></script>
+    
+    <!-- pageCub application code -->
+    <script src="js/pagecub.elements.js"></script>
+    <script src="js/pagecub.js"></script>
+  </body>
+</html>

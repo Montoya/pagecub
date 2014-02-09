@@ -1,0 +1,71 @@
+#pagecub .container { 
+	position:relative; 
+}
+#pagecub .container div.wrapper { 
+	background:transparent url(../img/pagecub.png) left -3px no-repeat; 
+	padding-left:148px; 
+	padding-right:148px; 
+}
+#pagecub .btn-toolbar { 
+	margin:9px 0; 
+} 
+#app-current { 
+	position:absolute;
+	top:7px; 
+	right:0; 
+	width:136px; 
+	overflow:visible; 
+	text-align:right; 
+	font-size:12px; 
+} 
+.app-hidden { 
+	position:absolute;
+	top:-9999px; 
+}
+
+#page.edit { 
+	cursor:crosshair; 
+}
+#page.edit .row { 
+}
+
+#page.edit div[class*='col-'] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #eee;
+  outline: 1px solid #ddd;
+  background-color: rgba(86,61,124,.15);
+  outline: 1px solid rgba(86,61,124,.2);
+}
+#page.edit div[class*='col-'].selected { 
+	outline-color:#88f; 
+}
+
+#app-editor-instance { 
+	min-height:1.5em; 
+	cursor:text; 
+}
+
+#voiceBtn {
+  width: 20px;
+  color: transparent;
+  background-color: transparent;
+  transform: scale(2.0, 2.0);
+  -webkit-transform: scale(2.0, 2.0);
+  -moz-transform: scale(2.0, 2.0);
+  border: transparent;
+  cursor: pointer;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+div[data-role="editor-toolbar"] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.dropdown-menu a {
+  cursor: pointer;
+}
